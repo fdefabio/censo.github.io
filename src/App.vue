@@ -1,17 +1,29 @@
 <template>
-  <div id="nav">
-    <router-link to="/" id="linknav">Registros</router-link> |
-    <router-link to="/about" id="linknav">Agregar</router-link>|
-    <router-link to="" id="linknav">Estadisticas</router-link>
+  <body>
+    <div id="nav">
+      <router-link to="/" id="linknav">Registros</router-link> |
+      <router-link to="/about" id="linknav">Agregar</router-link>|
+      <router-link to="" id="linknav">Estadisticas</router-link>
 
-    <div class="registrarbutton">
-      <a id="buttonreg" href="#" class="button">Ingresar</a>
+      <div class="registrarbutton">
+        <a id="buttonreg" href="#" class="button">Ingresar</a>
+      </div>
+
+      <div class="title">
+        <h2>Censo Indigena</h2>
+      </div>
     </div>
 
-    <div class="title">
-      <h2>Censo Indigena</h2>
+    <div id="content">
+      <h1>content</h1>
     </div>
-  </div>
+
+    <div id="footer">
+      <footer>
+        <h1>footer</h1>
+      </footer>
+    </div>
+  </body>
 
   <!-- <router-view />-->
 </template>
@@ -79,15 +91,31 @@
 }
 
 .registrarbutton {
+  position: absolute;
   width: 10%;
-  margin-left: 1500px;
+  margin-left: 80%;
   margin-top: -8px;
 }
 
 .title {
+  position: relative;
   width: 500px;
   margin-top: -45px;
   padding-top: 0px;
   color: #f4f7fa;
+}
+
+#content {
+  height: 830px;
+}
+
+#footer {
+  height: 55px;
+  background-color: rgb(127, 157, 255);
+}
+
+body {
+  margin: 0;
+  padding: 0;
 }
 </style>
