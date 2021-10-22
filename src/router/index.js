@@ -1,12 +1,9 @@
 import { createRouter, createWebHashHistory } from "vue-router";
-import Home from "../views/Home.vue";
+import FormContent from "../components/FormContent.vue";
+import Tabla from "../components/Tabla.vue";
+import Registrar from "../views/Registrar.vue";
 
 const routes = [
-  {
-    path: "/",
-    name: "Home",
-    component: Home,
-  },
   {
     path: "/about",
     name: "About",
@@ -15,6 +12,24 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/About.vue"),
+  },
+
+  {
+    path: "/form",
+    name: "Form",
+    component: FormContent,
+  },
+
+  {
+    path: "/registrar",
+    name: "Registrar",
+    component: Registrar,
+  },
+
+  {
+    path: "/tabla",
+    name: "Tabla",
+    component: Tabla,
   },
 ];
 
