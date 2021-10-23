@@ -43,7 +43,9 @@ export default {
   methods: {
     processLogin: function() {
       axios
-        .post("http://127.0.0.1:8000/login/", this.user, { headers: {} })
+        .post("https://censoindigena.herokuapp.com/login/", this.user, {
+          headers: {},
+        })
         .then((result) => {
           let dataLogin = {
             username: this.user.username,
