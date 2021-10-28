@@ -14,7 +14,7 @@
         </button>
       </div>
 
-      <div class="registrarbutton" id="buttoncerrar">
+      <div class="registrarbutton">
         <button to="/form" id="buttonreg" v-if="is_auth" v-on:click="logOut">
           Salir
         </button>
@@ -85,6 +85,7 @@ export default {
 
 <style>
 * {
+  /* box-sizing: border-box;*/
   /*border: 1px solid;*/
 }
 
