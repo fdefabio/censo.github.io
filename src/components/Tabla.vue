@@ -142,7 +142,7 @@ export default {
     getRegister: function() {
       let token = localStorage.getItem("token_access");
       axios
-        .get("http://localhost:8000/censoIndigena/personas/", {
+        .get("https://censoindigena.herokuapp.com/censoIndigena/personas/", {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((result) => {

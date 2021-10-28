@@ -200,7 +200,10 @@ export default {
           Object.entries(this.persona)
       );
       axios
-        .post("http://localhost:8000/censoIndigena/censar/", this.persona)
+        .post(
+          "https://censoindigena.herokuapp.com/censoIndigena/censar/",
+          this.persona
+        )
         .then((respuesta) => {
           alert("Persona agregada exitosamente!: ");
           this.$router.go(0);
@@ -212,7 +215,7 @@ export default {
     },
     metTraerOcupaciones: async function() {
       axios
-        .get("http://localhost:8000/ocupaciones/")
+        .get("https://censoindigena.herokuapp.com/ocupaciones/")
         .then((respuesta) => {
           this.ocupaciones = respuesta.data;
         })
@@ -222,7 +225,7 @@ export default {
     },
     metTraerEtnias: async function() {
       axios
-        .get("http://localhost:8000/etnias/")
+        .get("https://censoindigena.herokuapp.cometnias/")
         .then((respuesta) => {
           this.etnias = respuesta.data;
         })
@@ -232,7 +235,7 @@ export default {
     },
     metTraerResguardos: async function() {
       axios
-        .get("http://localhost:8000/resguardos/")
+        .get("https://censoindigena.herokuapp.com/resguardos/")
         .then((respuesta) => {
           this.resguardos = respuesta.data;
         })
