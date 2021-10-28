@@ -43,7 +43,7 @@ export default {
   methods: {
     processLogin: function() {
       axios
-        .post("http://localhost:8000/login/", this.user, {
+        .post("https://censoindigena.herokuapp.com/login/", this.user, {
           headers: {},
         })
         .then((result) => {
