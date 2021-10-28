@@ -30,9 +30,12 @@ export default {
       let idReg = localStorage.getItem("id");
 
       axios
-        .delete(`http://localhost:8000/censoIndigena/personas/${idReg}`, {
-          headers: { Authorization: `Bearer ${token}` },
-        })
+        .delete(
+          `https://censoindigena.herokuapp.com/censoIndigena/personas/${idReg}`,
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        )
         .then((result) => {
           alert("registro eliminado");
           document.getElementById("delete-window").style.display = "none";

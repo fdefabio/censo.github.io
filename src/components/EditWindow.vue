@@ -123,9 +123,13 @@ export default {
       let token = localStorage.getItem("token_access");
       let id = localStorage.getItem("id");
       axios
-        .put(`http://localhost:8000/censoIndigena/personas/${id}`, this.user, {
-          headers: { Authorization: `Bearer ${token}` },
-        })
+        .put(
+          `https://censoindigena.herokuapp.com/censoIndigena/personas/${id}`,
+          this.user,
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        )
         .then((response) => {
           alert("cambios realizados con exito!: ");
         })
@@ -138,7 +142,7 @@ export default {
 
     metTraerOcupaciones: async function() {
       axios
-        .get("http://localhost:8000/ocupaciones/")
+        .get("https://censoindigena.herokuapp.com/ocupaciones/")
         .then((respuesta) => {
           this.ocupaciones = respuesta.data;
         })
@@ -149,7 +153,7 @@ export default {
 
     metTraerEtnias: async function() {
       axios
-        .get("http://localhost:8000/etnias/")
+        .get("https://censoindigena.herokuapp.com:8000/etnias/")
         .then((respuesta) => {
           this.etnias = respuesta.data;
         })
@@ -159,7 +163,7 @@ export default {
     },
     metTraerResguardos: async function() {
       axios
-        .get("http://localhost:8000/resguardos/")
+        .get("https://censoindigena.herokuapp.com/resguardos/")
         .then((respuesta) => {
           this.resguardos = respuesta.data;
         })

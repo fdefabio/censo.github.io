@@ -85,6 +85,7 @@ export default {
 
 <style>
 * {
+  /*https://censoindigena.herokuapp.com*/
   /* box-sizing: border-box;*/
   /*border: 1px solid;*/
 }
