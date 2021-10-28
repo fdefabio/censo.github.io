@@ -149,9 +149,6 @@ export default {
           this.personas = result.data;
         })
         .catch((error) => alert("hubo un error"));
-      if (this.personas.length == []) {
-        alert("no se encontraron registros");
-      }
     },
   },
 };
