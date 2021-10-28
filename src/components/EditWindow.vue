@@ -136,7 +136,7 @@ export default {
           }
         )
         .then((response) => {
-          alert("cambios realizados con exito!: ");
+          alert("Cambios realizados con exito!: ");
         })
         .catch((error) => {
           alert("no se pudieron hacer los cambios!: ");
