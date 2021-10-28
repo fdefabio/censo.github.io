@@ -13,10 +13,7 @@
         required
       >
         <option value="" required>Tipo Documento</option>
-        <!-- Generación de múltiples Options usando un for:
-        El uso de `:` antes del nombre de un atributo hace que Vue intervenga
-        Por ejemplo: :value="nombre" permite que el atribute value de la etiquet  option tenga el valor variable nombre
-        -->
+
         <option
           v-for="(valor, nombre) in tipoDocumentos"
           :key="nombre"
@@ -37,6 +34,7 @@
 
       <div>
         <select
+          class="claseparaespacio"
           v-model="user.id_ocupacion"
           id="ocupaciones"
           placeholder="ocupacion"
@@ -55,6 +53,7 @@
 
       <div>
         <select
+          class="claseparaespacio"
           type="text"
           v-model="user.id_resguardo"
           id="resguardos"
@@ -71,7 +70,13 @@
       </div>
 
       <div>
-        <select type="text" v-model="user.id_etnia" id="etnias" required>
+        <select
+          class="claseparaespacio"
+          type="text"
+          v-model="user.id_etnia"
+          id="etnias"
+          required
+        >
           <option value="null">Etnias</option>
           <option
             v-for="etnia in etnias"
@@ -81,7 +86,7 @@
           >
         </select>
       </div>
-      <div><button type="submit">guardar</button></div>
+      <div><button type="submit" id="buttonguardar">guardar</button></div>
     </div>
   </form>
 </template>
@@ -123,13 +128,9 @@ export default {
       let token = localStorage.getItem("token_access");
       let id = localStorage.getItem("id");
       axios
-        .put(
-          `https://censoindigena.herokuapp.com/censoIndigena/personas/${id}`,
-          this.user,
-          {
-            headers: { Authorization: `Bearer ${token}` },
-          }
-        )
+        .put(`http://localhost:8000/censoIndigena/personas/${id}`, this.user, {
+          headers: { Authorization: `Bearer ${token}` },
+        })
         .then((response) => {
           alert("cambios realizados con exito!: ");
         })
@@ -142,7 +143,7 @@ export default {
 
     metTraerOcupaciones: async function() {
       axios
-        .get("https://censoindigena.herokuapp.com/ocupaciones/")
+        .get("http://localhost:8000/ocupaciones/")
         .then((respuesta) => {
           this.ocupaciones = respuesta.data;
         })
@@ -153,7 +154,7 @@ export default {
 
     metTraerEtnias: async function() {
       axios
-        .get("https://censoindigena.herokuapp.com/etnias/")
+        .get("http://localhost:8000/etnias/")
         .then((respuesta) => {
           this.etnias = respuesta.data;
         })
@@ -163,7 +164,7 @@ export default {
     },
     metTraerResguardos: async function() {
       axios
-        .get("https://censoindigena.herokuapp.com/resguardos/")
+        .get("http://localhost:8000/resguardos/")
         .then((respuesta) => {
           this.resguardos = respuesta.data;
         })
@@ -204,5 +205,12 @@ export default {
 }
 #xcerrar {
   color: black;
+}
+#buttonguardar {
+  margin-right: 50px;
+  margin-top: 50px;
+}
+.claseparaespacio {
+  margin-top: 30px;
 }
 </style>
