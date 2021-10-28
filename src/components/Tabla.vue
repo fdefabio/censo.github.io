@@ -38,22 +38,22 @@
                 <td class="name">
                   {{ persona.nombre }}
                 </td>
-                <td class="personid">
+                <td class="personadocid">
                   {{ persona.doc_id }}
                 </td>
                 <td class="fechanacimiento">
                   {{ persona.fechadenacimiento }}
                 </td>
-                <td>
+                <td class="departamento">
                   {{ persona.departamento }}
                 </td>
-                <td>
+                <td class="ocupacion">
                   {{ persona.ocupacion }}
                 </td>
-                <td>
+                <td class="etnia">
                   {{ persona.etnia }}
                 </td>
-                <td>
+                <td class="resguardo">
                   {{ persona.resguardo }}
                 </td>
               </tr>
@@ -112,9 +112,26 @@ export default {
       document.getElementById("pbuttoneditar").style.display = "none";
       localStorage.setItem("id", $("tr.selected td.personaid").html());
       localStorage.setItem("name", $("tr.selected td.name").html());
+      localStorage.setItem("doc_id", $("tr.selected td.personadocid").html());
+      localStorage.setItem(
+        "borndate",
+        $("tr.selected td.fechanacimiento").html()
+      );
+      localStorage.setItem(
+        "departamento",
+        $("tr.selected td.departamento").html()
+      );
     },
 
     mostraredit: function() {
+      document.getElementById("nameedit").value = localStorage.getItem("name");
+      document.getElementById("fechanac").value = localStorage.getItem(
+        "borndate"
+      );
+      document.getElementById("departamento").value = localStorage.getItem(
+        "departamento"
+      );
+
       document.getElementById("window").style.display = "block";
     },
 
@@ -125,7 +142,7 @@ export default {
     getRegister: function() {
       let token = localStorage.getItem("token_access");
       axios
-        .get("https://censoindigena.herokuapp.com/censoIndigena/personas/", {
+        .get("http://localhost:8000/censoIndigena/personas/", {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((result) => {
