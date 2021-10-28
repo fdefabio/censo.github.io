@@ -153,7 +153,7 @@ export default {
 
     metTraerEtnias: async function() {
       axios
-        .get("https://censoindigena.herokuapp.com:8000/etnias/")
+        .get("https://censoindigena.herokuapp.com/etnias/")
         .then((respuesta) => {
           this.etnias = respuesta.data;
         })
