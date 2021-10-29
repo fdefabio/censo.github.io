@@ -5,7 +5,7 @@
         Registros</router-link
       >
       |
-      <router-link to="/registrar" id="linknav">Agregar</router-link>|
+      <router-link to="/censoIndigena" id="linknav">Agregar</router-link>|
       <router-link to="/" id="linknav">Estadisticas</router-link>
 
       <div class="registrarbutton">
@@ -31,7 +31,7 @@
     </div>
 
     <div class="footer">
-      <h2>Mision tic 2021 Grupo 2</h2>
+      <h2>Mision TIC 2021 Grupo 2</h2>
     </div>
   </body>
 </template>
@@ -39,7 +39,10 @@
 export default {
   name: "App",
 
-  data: function() {
+  direccionBack: "https://censoindigena.herokuapp.com/",
+  //direccionBack: "http://localhost:8000/",
+
+  data: function () {
     return {
       username: localStorage.getItem("username"),
       is_auth: false,
@@ -48,7 +51,7 @@ export default {
   components: {},
 
   methods: {
-    verifyAuth: function() {
+    verifyAuth: function () {
       this.is_auth = localStorage.getItem("is_auth") || false;
       if (this.is_auth == false) {
         this.$router.push({ name: "Form" });
@@ -57,11 +60,11 @@ export default {
       }
     },
 
-    loadLogin: function() {
+    loadLogin: function () {
       this.$router.push({ name: "Form" });
     },
 
-    completedLogin: function(data) {
+    completedLogin: function (data) {
       localStorage.setItem("is_auth", true);
       localStorage.setItem("username", data.username);
       localStorage.setItem("token_access", data.token_access);
@@ -70,14 +73,21 @@ export default {
       this.verifyAuth();
     },
 
-    logOut: function() {
+    logOut: function () {
       localStorage.clear();
       alert("Sesión terminada");
       this.verifyAuth();
     },
   },
 
-  created: function() {
+  logOutSuave: function () {
+    localStorage.clear();
+    alert("Sesión terminada");
+    this.is_auth = false;
+    localStorage.setItem("is_auth", false);
+  },
+
+  created: function () {
     this.verifyAuth();
   },
 };

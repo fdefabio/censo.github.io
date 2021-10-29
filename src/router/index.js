@@ -1,7 +1,8 @@
-import { createRouter, createWebHashHistory } from "vue-router";
+import { createRouter, createWebHistory, createWebHashHistory } from "vue-router";
 import FormContent from "../components/FormContent.vue";
 import Tabla from "../components/Tabla.vue";
 import Registrar from "../views/Registrar.vue";
+import Censar from "../components/Censar.vue"
 
 const routes = [
   {
@@ -12,6 +13,12 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/About.vue"),
+  },
+
+  {
+    path: "/censoIndigena",
+    name: "pathAgregarPersona",
+    component: Censar,
   },
 
   {
@@ -34,7 +41,7 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes,
 });
 
